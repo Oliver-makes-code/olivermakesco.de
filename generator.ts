@@ -30,7 +30,7 @@ for await (const entry of walk(inputDir)) {
             heading = headingValue.html()
         }
         const content = md.render_to_html(parsed)
-        content.attributes.push(new html.Attribute("id", "content"))
+        content.attr("id", "content")
         
         Deno.writeTextFile(
             outputDir + path.substring(inputDir.length, path.length - 3) + ".html",

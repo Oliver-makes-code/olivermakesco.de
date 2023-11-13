@@ -11,14 +11,14 @@ try {
 } catch (e) {}
 const index = await Deno.readTextFile("./index.html")
 
-function replaceContent(heading: string, content: string) {
-    return index.replace("{{heading}}", heading).replace("{{content}}", content)
+function replaceContent(pagename: string, heading: string, content: string) {
+    return index.replaceAll("{{pagename}}", pagename).replace("{{heading}}", heading).replace("{{content}}", content)
 }
 
 for await (const entry of walk(inputDir)) {
     if (entry.isDirectory)
         continue
-    const { path } = entry;
+    const { path, name } = entry;
     if (path.endsWith(".md")) {
         const parsed = md.parser.parse(await Deno.readTextFile(path))
         const { blocks } = parsed as { blocks: md.BlockElement[] };
@@ -34,7 +34,7 @@ for await (const entry of walk(inputDir)) {
         
         Deno.writeTextFile(
             outputDir + path.substring(inputDir.length, path.length - 3) + ".html",
-            replaceContent(heading, content.html())
+            replaceContent(name.substring(0, name.length - 3), heading, content.html())
         )
     } else {
         Deno.copyFile(path, outputDir +  path.substring(inputDir.length))

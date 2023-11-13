@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Oliver Makes Code</title>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Inter' />
+        <link rel="stylesheet" href="/index.css" />
+    </head>
+    <body>
+        <!--
+            This acts as a rotated rectangle in the back of the screen
+        -->
+        <div id="background-nocontent">
+            <!--
+                The content is displayed over top this, treat this as the root element
+            -->
+            <div id="background">
+                <!--
+                    The header includes the site name and the page title
+                -->
+                <div id="header">
+                    <div>
+                        <div id="nameplate">
+                            <h1>Oliver Makes Code</h1>
+                        </div>
+                    </div>
+                    <div id="page-title">
+{{heading}}
+                    </div>
+                </div>
+                
+                <!--
+                    The content for the page, text and stuff
+                -->
+{{content}}
+
+                <div id="footer">
+                    <p>Made with love and <u>ZERO</u> JavaScript!</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

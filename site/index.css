@@ -1,0 +1,123 @@
+:root {
+    /*
+        The colors of the background of the site.
+    */
+    --farback-color: #223139;
+    --midback-color: #3BF3E8;
+    --back-color: #D0EDFD;
+    --header-color: #BFD7FC;
+    --nameplate-color: #EEFF27;
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --back-shadow: 5px 5px var(--shadow-color);
+    
+    /*
+        The common width/height for background panels
+    */
+    --back-width: 85vw;
+    --back-height: 90vh;
+}
+
+
+/*
+    Set the color of the far back
+*/
+body {
+    background-color: var(--farback-color);
+    overflow: hidden;
+    font-family: 'Inter';
+}
+
+/*
+    Rotate and position
+*/
+#background-nocontent {
+    width: var(--back-width);
+    height: var(--back-height);
+    background-color: var(--midback-color);
+    box-shadow: var(--back-shadow);
+
+    position: absolute;
+    top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%) rotate(3deg);
+}
+
+/*
+    Rotate and position,
+    Elements are in a vertical flex box.
+*/
+#background {
+    width: var(--back-width);
+    height: var(--back-height);
+    background-color: var(--back-color);
+    box-shadow: var(--back-shadow);
+
+    position: absolute;
+    top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%) rotate(-3deg);
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+    A horizontal flex box containing the nameplate and page title
+*/
+#header {
+    width: var(--back-width);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    background-color: var(--header-color);
+    box-shadow: 0 5px var(--shadow-color);
+}
+
+/*
+    Rotate and position
+*/
+#nameplate {
+    background-color: var(--nameplate-color);
+    width: fit-content;
+    height: fit-content;
+    box-shadow: var(--back-shadow);
+
+    transform: rotate(-3deg);
+    position: relative;
+    left: 1vw;
+    align-self: flex-start;
+}
+
+#nameplate h1 {
+    padding: 6px;
+    text-align: center;
+}
+
+#page-title {
+    text-align: center;
+    margin: auto;
+}
+
+/*
+    Make sure padding is nice and overflow actually scrolls.
+*/
+#content {
+    overflow: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+    height: max-content;
+}
+
+/*
+    Just up the font size and padding a bit
+*/
+#content p {
+    padding: 6px;
+    font-size: 24px;
+}
+
+#footer {
+    margin-top: auto;
+    text-align: center;
+    font-size: 75%;
+}

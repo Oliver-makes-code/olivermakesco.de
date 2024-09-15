@@ -1,5 +1,7 @@
 # Welcome to my website!
 
+## I need your help. See [this page](/help.html)
+
 I'm Oliver, and I go by the online alias of Octal.
 
 I like to code, make pixel art, and make music.
